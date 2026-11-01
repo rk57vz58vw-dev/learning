@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>اصنع طريقك – منصة تعليمية</title>
+<link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;800&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#F5F8FB;--card:#fff;--ink:#14213D;--mute:#5B6B82;--line:#DCE4EE;--main:#0E7C7B;--main-ink:#fff;--sun:#FFC857;--bad:#D64933;--ok:#1E9E5A;
+box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--bg:#0F1726;--card:#18233A;--ink:#EEF3FA;--mute:#9DB0CC;--line:#2A3956;--main:#2BB5B3;--main-ink:#08202A}}
+:root[data-theme="dark"]{--bg:#0F1726;--card:#18233A;--ink:#EEF3FA;--mute:#9DB0CC;--line:#2A3956;--main:#2BB5B3;--main-ink:#08202A}
+html{scroll-padding-top:env(safe-area-inset-top,0px)}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--ink);font-family:Cairo,Tahoma,sans-serif;line-height:1.7}
+body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset-top,0px);background:var(--card);z-index:10}
+button{font:inherit;cursor:pointer}
+:focus-visible{outline:3px solid var(--sun);outline-offset:2px}
+header{position:sticky;top:env(safe-area-inset-top,0px);z-index:9;background:var(--card);border-bottom:1px solid var(--line)}
+.bar{max-width:1080px;margin:auto;padding:10px 16px;display:flex;align-items:center;gap:12px}
+.logo{display:flex;align-items:center;gap:8px;font-weight:800;font-size:1.25rem;background:none;border:0;color:var(--ink)}
+.logo svg{width:34px;height:34px}
+.sp{flex:1}
+.pill{background:var(--bg);border:1px solid var(--line);border-radius:99px;padding:4px 14px;font-size:.9rem;color:var(--ink)}
+main{max-width:1080px;margin:auto;padding:16px}
+.hero{background:var(--ink);color:#fff;border-radius:20px;padding:32px 24px;position:relative;overflow:hidden}
+.hero h1{margin:0 0 8px;font-size:clamp(1.8rem,5vw,2.8rem);font-weight:800;line-height:1.3}
+.hero p{margin:0 0 18px;max-width:46ch;opacity:.85}
+.hero svg{position:absolute;left:-10px;bottom:-10px;width:min(55%,380px);opacity:.9}
+.btn{background:var(--sun);color:#14213D;border:0;border-radius:12px;padding:10px 22px;font-weight:800}
+.btn.alt{background:var(--main);color:var(--main-ink)}
+.btn.ghost{background:transparent;border:1px solid var(--line);color:var(--ink)}
+h2{font-size:1.4rem;margin:28px 0 12px}
+.tabs{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:12px}
+.tab{background:var(--card);border:1px solid var(--line);border-radius:99px;padding:6px 18px;color:var(--ink)}
+.tab[aria-pressed=true]{background:var(--main);color:var(--main-ink);border-color:var(--main)}
+.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(240px,1fr));gap:14px}
+.c{background:var(--card);border:1px solid var(--line);border-radius:14px;overflow:hidden;text-align:right;padding:0;color:var(--ink);display:flex;flex-direction:column}
+.c:hover{border-color:var(--main)}
+.thumb{height:96px;display:grid;place-items:center;font-size:2.4rem}
+.cb{padding:12px 14px}
+.cb b{display:block}
+.cb small{color:var(--mute)}
+.meter{height:7px;background:var(--line);border-radius:9px;margin-top:10px;overflow:hidden}
+.meter i{display:block;height:100%;background:var(--ok)}
+.layout{display:grid;grid-template-columns:1fr 320px;gap:16px}
+@media(max-width:800px){.layout{grid-template-columns:1fr}}
+.box{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:16px}
+.video{aspect-ratio:16/9;background:var(--ink);border-radius:12px;display:grid;place-items:center;color:#fff;text-align:center;padding:12px}
+.video span{font-size:3rem;color:var(--sun)}
+.ls{list-style:none;margin:0;padding:0}
+.ls button{width:100%;display:flex;gap:10px;align-items:center;text-align:right;background:none;border:0;border-bottom:1px solid var(--line);padding:10px 4px;color:var(--ink)}
+.ls button[aria-current=true]{color:var(--main);font-weight:800}
+.dot{width:22px;height:22px;border-radius:50%;border:2px solid var(--line);display:grid;place-items:center;font-size:.75rem;flex:none}
+.dot.d{background:var(--ok);border-color:var(--ok);color:#fff}
+.opt{display:block;width:100%;text-align:right;background:var(--bg);border:1px solid var(--line);border-radius:10px;padding:10px 12px;margin:6px 0;color:var(--ink)}
+.opt.ok{border-color:var(--ok);background:color-mix(in srgb,var(--ok) 18%,transparent)}
+.opt.no{border-color:var(--bad);background:color-mix(in srgb,var(--bad) 18%,transparent)}
+.row{display:flex;gap:8px;flex-wrap:wrap;margin-top:12px}
+.stats{display:grid;grid-template-columns:repeat(3,1fr);gap:10px}
+.stats div{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:14px;text-align:center}
+.stats b{display:block;font-size:1.6rem;color:var(--main)}
+label{display:block;margin:12px 0;font-weight:600}input,select,textarea{display:block;width:100%;margin-top:4px;font:inherit;padding:8px 10px;border:1px solid var(--line);border-radius:10px;background:var(--bg);color:var(--ink)}
+footer{text-align:center;color:var(--mute);padding:28px 16px;font-size:.9rem}
+@media (prefers-reduced-motion:reduce){*{transition:none!important}}
+</style>
+</head>
+<body>
+<header><div class="bar">
+<button class="logo" id="home" aria-label="الصفحة الرئيسية"><svg viewBox="0 0 40 40"><rect width="40" height="40" rx="10" fill="#0E7C7B"/><path d="M8 30 C16 30 14 14 22 14 S26 10 32 10" stroke="#FFC857" stroke-width="4" fill="none" stroke-linecap="round"/><circle cx="32" cy="10" r="3.5" fill="#fff"/></svg>اصنع طريقك</button>
+<span class="sp"></span><button class="pill" id="tp" hidden>＋ لوحة المدرس</button><span class="pill" id="pts"></span><button class="pill" id="theme" aria-label="تغيير المظهر">◐</button>
+</div></header>
+<main id="app"></main>
+<footer>اصنع طريقك – تعلّم خطوة بخطوة</footer>
+<script>
+const BASE=[
+{id:"math-p6",t:"الرياضيات",g:"ابتدائي",y:"الصف السادس",e:"➗",c:"#FFC857",l:["الكسور العادية","جمع وطرح الكسور","النسبة والتناسب","المساحة والمحيط"],q:[["ناتج ١/٢ + ١/٤ = ؟",["٣/٤","٢/٦","١/٣"],0],["مساحة مستطيل طوله ٥ وعرضه ٣ = ؟",["١٦","١٥","٨"],1]]},
+{id:"ar-p6",t:"اللغة العربية",g:"ابتدائي",y:"الصف السادس",e:"✒️",c:"#F4A6A0",l:["الفعل والفاعل","المبتدأ والخبر","التعبير الكتابي"],q:[["الجملة التي تبدأ بفعل تسمى؟",["اسمية","فعلية","شبه جملة"],1],["في «الطالب مجتهد» الخبر هو؟",["الطالب","مجتهد","لا يوجد"],1]]},
+{id:"sci-m2",t:"العلوم",g:"إعدادي",y:"الصف الثاني الإعدادي",e:"🔬",c:"#9ED8C8",l:["الخلية وأجزاؤها","التغذية في الإنسان","الطاقة وأشكالها","الدوائر الكهربية"],q:[["وحدة بناء الكائن الحي هي؟",["الذرة","الخلية","العضو"],1],["مصدر الطاقة الأساسي للأرض؟",["القمر","الشمس","الرياح"],1]]},
+{id:"eng-m2",t:"اللغة الإنجليزية",g:"إعدادي",y:"الصف الثاني الإعدادي",e:"🔤",c:"#B8C7F5",l:["Present Simple","Past Simple","Vocabulary: Travel"],q:[["She ___ to school every day.",["go","goes","going"],1],["Past of «eat»?",["eated","ate","eaten"],1]]},
+{id:"math-m3",t:"الجبر والهندسة",g:"إعدادي",y:"الصف الثالث الإعدادي",e:"📐",c:"#FFD9A0",l:["المعادلات من الدرجة الأولى","نظرية فيثاغورس","المتباينات"],q:[["حل: س + ٣ = ٧",["٤","١٠","٣"],0],["مثلث قائم أضلاعه ٣ و٤، الوتر = ؟",["٥","٦","٧"],0]]},
+{id:"phy-s1",t:"الفيزياء",g:"ثانوي",y:"الصف الأول الثانوي",e:"⚛️",c:"#A8E0F0",l:["القياس والوحدات","الحركة في خط مستقيم","قوانين نيوتن","الشغل والطاقة"],q:[["وحدة القوة في النظام الدولي؟",["جول","نيوتن","واط"],1],["السرعة = المسافة ÷ ؟",["الزمن","الكتلة","القوة"],0]]},
+{id:"chem-s2",t:"الكيمياء",g:"ثانوي",y:"الصف الثاني الثانوي",e:"🧪",c:"#D5F0A8",l:["الجدول الدوري","الروابط الكيميائية","الاتزان الكيميائي"],q:[["الرمز الكيميائي للماء؟",["CO₂","H₂O","NaCl"],1],["أخف عنصر في الجدول الدوري؟",["الهيدروجين","الأكسجين","الليثيوم"],0]]},
+{id:"bio-s3",t:"الأحياء",g:"ثانوي",y:"الصف الثالث الثانوي",e:"🧬",c:"#F2B8E0",l:["الوراثة والجينات","الحمض النووي DNA","التكاثر"],q:[["الحمض النووي يحمل؟",["الصفات الوراثية","الماء","الطاقة فقط"],0],["وحدة الوراثة هي؟",["الجين","الخلية","النسيج"],0]]}
+];let COURSES=BASE.slice(),DB=null,CAN=false;
+const GR=["الكل","ابتدائي","إعدادي","ثانوي"];
+let S={g:"الكل",cur:null,li:0,quiz:null,P:{},pts:0};
+try{const r=localStorage.getItem("osna3");if(r)Object.assign(S,JSON.parse(r))}catch(e){}
+const save=()=>{try{localStorage.setItem("osna3",JSON.stringify({P:S.P,pts:S.pts}))}catch(e){}};
+const $=s=>document.querySelector(s),app=$("#app");
+const done=c=>(S.P[c.id]||[]).length,pct=c=>Math.round(done(c)/c.l.length*100);
+function card(c){return `<button class="c" data-c="${c.id}"><div class="thumb" style="background:${c.c}">${c.e}</div><div class="cb"><b>${c.t}</b><small>${c.y}</small><div class="meter"><i style="width:${pct(c)}%"></i></div><small>${done(c)} من ${c.l.length} دروس</small></div></button>`}
+function home(){
+S.cur=null;S.quiz=null;
+const list=COURSES.filter(c=>S.g==="الكل"||c.g===S.g);
+const total=COURSES.reduce((a,c)=>a+done(c),0);
+app.innerHTML=`<section class="hero"><h1>اصنع طريقك نحو التفوّق</h1><p>شروحات مبسطة، دروس قصيرة، واختبارات تقيس مستواك بعد كل كورس. ابدأ من صفك الدراسي وكمّل خطوة بخطوة.</p><button class="btn" id="go">ابدأ التعلّم</button>
+<svg viewBox="0 0 300 160" aria-hidden="true"><path d="M0 150 C80 150 70 60 150 60 S220 30 300 20" stroke="#FFC857" stroke-width="10" fill="none" stroke-linecap="round" stroke-dasharray="2 18"/><circle cx="300" cy="20" r="12" fill="#2BB5B3"/></svg></section>
+<h2>تقدّمك</h2><div class="stats"><div><b>${total}</b>درس مكتمل</div><div><b>${S.pts}</b>نقطة</div><div><b>${COURSES.filter(c=>pct(c)===100).length}</b>كورس منتهي</div></div>
+<h2 id="courses">الكورسات</h2><div class="tabs">${GR.map(g=>`<button class="tab" data-g="${g}" aria-pressed="${g===S.g}">${g}</button>`).join("")}</div>
+<div class="grid">${list.map(card).join("")}</div>`;
+$("#pts").textContent="⭐ "+S.pts;
+}
+function course(){
+const c=COURSES.find(x=>x.id===S.cur),d=S.P[c.id]||[],i=S.li;
+app.innerHTML=`<button class="btn ghost" id="back">رجوع للكورسات</button><h2>${c.e} ${c.t} – ${c.y}</h2>${c.custom&&CAN?'<button class="btn ghost" id="del">حذف الكورس</button>':""}
+<div class="layout"><div class="box">${S.quiz?quiz(c):`${vid(c,i)}
+<h3>${c.l[i]}</h3><p>شرح مبسط للدرس مع أمثلة محلولة وتدريبات. شاهد الفيديو ثم اضغط «أنهيت الدرس» لتسجيل تقدمك.</p>
+<div class="row"><button class="btn alt" id="fin">${d.includes(i)?"✓ تم إنهاء الدرس":"أنهيت الدرس (+١٠ نقاط)"}</button>${i<c.l.length-1?`<button class="btn ghost" id="next">الدرس التالي</button>`:""}<button class="btn" id="qz">ابدأ اختبار الكورس</button></div>`}</div>
+<aside class="box"><b>محتوى الكورس – ${pct(c)}%</b><div class="meter"><i style="width:${pct(c)}%"></i></div><ul class="ls">${c.l.map((x,k)=>`<li><button data-l="${k}" ${k===i&&!S.quiz?'aria-current="true"':""}><span class="dot ${d.includes(k)?"d":""}">${d.includes(k)?"✓":k+1}</span>${x}</button></li>`).join("")}</ul></aside></div>`;
+}
+function quiz(c){
+const q=S.quiz;
+if(q.i>=c.q.length)return `<h3>نتيجتك: ${q.s} من ${c.q.length}</h3><p>${q.s===c.q.length?"ممتاز! أنت متمكن من هذا الكورس 🎉":"راجع الدروس وجرّب مرة أخرى."}</p><div class="row"><button class="btn alt" id="again">أعد الاختبار</button><button class="btn ghost" id="exit">العودة للدروس</button></div>`;
+const [t,o,a]=c.q[q.i];
+return `<small>سؤال ${q.i+1} من ${c.q.length}</small><h3>${t}</h3>${o.map((x,k)=>`<button class="opt ${q.p===undefined?"":k===a?"ok":k===q.p?"no":""}" data-o="${k}" ${q.p!==undefined?"disabled":""}>${x}</button>`).join("")}${q.p!==undefined?`<div class="row"><button class="btn alt" id="nq">${q.i+1<c.q.length?"السؤال التالي":"عرض النتيجة"}</button></div>`:""}`;
+}
+app.addEventListener("click",e=>{
+const b=e.target.closest("button");if(!b)return;
+const c=S.cur&&COURSES.find(x=>x.id===S.cur);
+if(b.id==="go"){$("#courses").scrollIntoView({behavior:"smooth"});return}
+if(b.dataset.g){S.g=b.dataset.g;home();return}
+if(b.dataset.c){S.cur=b.dataset.c;S.li=0;S.quiz=null;course();scrollTo(0,0);return}
+if(b.id==="back"){S.tp=0;home();return}
+if(b.id==="del"){DB.collection("courses").doc(S.cur).delete().then(()=>home());return}
+if(b.id==="up"){$("#f_f").click();return}
+if(b.id==="sv"){saveC();return}
+if(b.dataset.l){S.li=+b.dataset.l;S.quiz=null;course();return}
+if(b.id==="fin"){const d=S.P[c.id]=S.P[c.id]||[];if(!d.includes(S.li)){d.push(S.li);S.pts+=10;save()}course();$("#pts").textContent="⭐ "+S.pts;return}
+if(b.id==="next"){S.li++;course();return}
+if(b.id==="qz"||b.id==="again"){S.quiz={i:0,s:0};course();return}
+if(b.id==="exit"){S.quiz=null;course();return}
+if(b.dataset.o!==undefined){const k=+b.dataset.o;S.quiz.p=k;if(k===c.q[S.quiz.i][2]){S.quiz.s++;S.pts+=5;save()}course();$("#pts").textContent="⭐ "+S.pts;return}
+if(b.id==="nq"){S.quiz.i++;S.quiz.p=undefined;course();return}
+});
+$("#home").onclick=()=>{S.tp=0;home()};$("#tp").onclick=form;
+$("#theme").onclick=()=>{const r=document.documentElement,d=getComputedStyle(r).getPropertyValue("--bg").trim()==="#0F1726";r.dataset.theme=d?"light":"dark"};
+function vid(c,i){const u=(c.v||[])[i];
+if(!u)return `<div class="video"><div><span>▶</span><p>الدرس ${i+1}: ${c.l[i]}<br><small>لم يضف المدرس فيديو لهذا الدرس بعد</small></p></div></div>`;
+const m=u.match(/(?:youtu\.be\/|v=|embed\/)([\w-]{11})/);
+if(m)return `<iframe class="video" style="border:0;width:100%" src="https://www.youtube.com/embed/${m[1]}" allowfullscreen></iframe><p><a href="${u}" target="_blank" rel="noopener">افتح الفيديو في نافذة جديدة</a></p>`;
+return `<video class="video" controls style="width:100%" src="${u}"></video>`}
+function form(){S.tp=1;S.cur=null;app.innerHTML=`<button class="btn ghost" id="back">رجوع</button><h2>إضافة كورس جديد</h2><div class="box"><label>اسم الكورس<input id="f_t"></label><label>المرحلة<select id="f_g"><option>ابتدائي<option>إعدادي<option>ثانوي</select></label><label>الصف<input id="f_y"></label><label>الدروس (سطر لكل درس: العنوان | رابط الفيديو)<textarea id="f_l" rows="5"></textarea></label><div class="row"><button class="btn ghost" id="up">رفع ملف فيديو</button><input type="file" id="f_f" accept="video/*" hidden></div><label>الاختبار (سطر لكل سؤال: السؤال | خيار | خيار | خيار | رقم الإجابة الصحيحة)<textarea id="f_q" rows="5"></textarea></label><div class="row"><button class="btn alt" id="sv">نشر الكورس</button></div><p id="msg"></p></div>`}
+async function saveC(){const g=id=>$("#"+id).value.trim();
+const sp=t=>g(t).split("\n").map(x=>x.split("|").map(s=>s.trim())).filter(x=>x[0]);
+const l=sp("f_l"),q=sp("f_q").filter(x=>x.length>=4).map(x=>({t:x[0],o:x.slice(1,-1),a:Math.max(0,(+x[x.length-1]||1)-1)}));
+if(!g("f_t")||!l.length){$("#msg").textContent="اكتب اسم الكورس ودرسًا واحدًا على الأقل.";return}
+const v=l.map(x=>/^(https:\/\/|\/_blob\/)/.test(x[1]||"")?x[1]:"");
+try{await DB.collection("courses").doc("c"+Date.now()).set({t:g("f_t"),g:$("#f_g").value,y:g("f_y"),e:"📘",c:"#CFE3FF",l:l.map(x=>x[0]),v,q});S.tp=0;home()}catch(e){$("#msg").textContent="تعذر الحفظ. هذه الصلاحية للمدرسين فقط."}}
+app.addEventListener("change",async e=>{if(e.target.id!=="f_f"||!e.target.files[0])return;try{const a=await claude.use("assets"),r=await a.upload(e.target.files[0]),t=$("#f_l");t.value+=(t.value?"\n":"")+"عنوان الدرس | "+r.url}catch(x){$("#msg").textContent="تعذر رفع الفيديو."}});
+(async()=>{try{const u=await claude.use("user");CAN=!!(u&&u.canEdit());$("#tp").hidden=!CAN;DB=await claude.use("db");if(DB)DB.collection("courses").onSnapshot(s=>{COURSES=BASE.concat(s.docs.map(d=>{const x=d.data();return {...x,id:d.id,custom:1,q:(x.q||[]).map(z=>[z.t,z.o,z.a])}}));if(!S.tp&&!S.cur)home()})}catch(e){}})();
+home();
+</script>
+</body>
+</html>
